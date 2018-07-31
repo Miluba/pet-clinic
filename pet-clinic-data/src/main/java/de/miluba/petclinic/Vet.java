@@ -1,4 +1,4 @@
-package de.miluba.petclinic.domain;
+package de.miluba.petclinic;
 
 public class Vet extends Person {
 
