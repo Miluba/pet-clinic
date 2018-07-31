@@ -1,4 +1,4 @@
-package de.miluba.petclinic;
+package de.miluba.petclinic.model;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

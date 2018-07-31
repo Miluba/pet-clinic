@@ -1,4 +1,4 @@
-package de.miluba.petclinic;
+package de.miluba.petclinic.model;
 
 public class Owner extends Person {
 }
