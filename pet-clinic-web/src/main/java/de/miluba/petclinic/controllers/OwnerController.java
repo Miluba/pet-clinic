@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class VetsController {
+public class OwnerController {
 
-    @RequestMapping({"/vets","/vets/index","/vets/index.html"})
-    public String listVets(){
-        return "vets/index";
+    @RequestMapping({"/owner","/owner/index","/owner/index.html"})
+    public String listPets(){
+        return "owner/index";
     }
 }
