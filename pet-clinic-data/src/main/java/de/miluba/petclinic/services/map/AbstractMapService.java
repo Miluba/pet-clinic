@@ -1,6 +1,5 @@
 package de.miluba.petclinic.services.map;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
 import de.miluba.petclinic.model.BaseEntity;
 import de.miluba.petclinic.services.CrudService;
 

@@ -4,20 +4,19 @@ import de.miluba.petclinic.model.Owner;
 import de.miluba.petclinic.model.Vet;
 import de.miluba.petclinic.services.OwnerService;
 import de.miluba.petclinic.services.VetService;
-import de.miluba.petclinic.services.map.OwnerMapService;
-import de.miluba.petclinic.services.map.VetMapService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    final OwnerService ownerService;
-    final VetService vetService;
+    private final OwnerService ownerService;
+    private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerMapService();
-        vetService = new VetMapService();
+
+    public DataLoader(final OwnerService ownerService, final VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override

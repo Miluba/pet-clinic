@@ -3,10 +3,12 @@ package de.miluba.petclinic.services.map;
 import de.miluba.petclinic.model.Pet;
 import de.miluba.petclinic.services.CrudService;
 import de.miluba.petclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Optional;
 
+@Service
 public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Collection<Pet> findAll() {
