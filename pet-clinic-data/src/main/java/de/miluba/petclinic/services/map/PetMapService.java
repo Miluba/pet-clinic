@@ -2,11 +2,12 @@ package de.miluba.petclinic.services.map;
 
 import de.miluba.petclinic.model.Pet;
 import de.miluba.petclinic.services.CrudService;
+import de.miluba.petclinic.services.PetService;
 
 import java.util.Collection;
 import java.util.Optional;
 
-class PetMapService extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Collection<Pet> findAll() {
         return super.findAll();

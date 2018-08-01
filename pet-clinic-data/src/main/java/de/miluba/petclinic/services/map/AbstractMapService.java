@@ -1,5 +1,6 @@
 package de.miluba.petclinic.services.map;
 
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import de.miluba.petclinic.model.BaseEntity;
 import de.miluba.petclinic.services.CrudService;
 
@@ -8,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-abstract class AbstractMapService<T extends BaseEntity<ID>, ID> implements CrudService<T, ID> {
+abstract class AbstractMapService<T extends BaseEntity<ID>, ID extends Long> implements CrudService<T, ID> {
 
     final Map<ID, T> map = new HashMap<>();
 
