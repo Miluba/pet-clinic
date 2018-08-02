@@ -1,7 +1,6 @@
 package de.miluba.petclinic.services.map;
 
-import de.miluba.petclinic.model.Vet;
-import de.miluba.petclinic.services.CrudService;
+import de.miluba.petclinic.Vet;
 import de.miluba.petclinic.services.VetService;
 import org.springframework.stereotype.Service;
 

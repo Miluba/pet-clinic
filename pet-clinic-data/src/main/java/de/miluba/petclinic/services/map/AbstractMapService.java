@@ -1,6 +1,6 @@
 package de.miluba.petclinic.services.map;
 
-import de.miluba.petclinic.model.BaseEntity;
+import de.miluba.petclinic.BaseEntity;
 import de.miluba.petclinic.services.CrudService;
 
 import java.util.Collection;

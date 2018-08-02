@@ -1,4 +1,4 @@
-package de.miluba.petclinic.model;
+package de.miluba.petclinic;
 
 import java.io.Serializable;
 

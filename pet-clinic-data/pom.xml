@@ -5,6 +5,7 @@
         <groupId>de.miluba</groupId>
         <version>0.0.7-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>pet-clinic-data</artifactId>
@@ -44,19 +45,14 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>
-                                repackage
-                            </goal>
+                            <goal>repackage</goal>
                         </goals>
                         <configuration>
-                            <skip>
-                                true
-                            </skip>
+                            <skip>true</skip>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
-
 </project>
