@@ -3,14 +3,11 @@ package de.miluba.petclinic.services.map;
 import de.miluba.petclinic.model.BaseEntity;
 import de.miluba.petclinic.services.CrudService;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
-abstract class AbstractMapService<T extends BaseEntity<ID>, ID extends Long> implements CrudService<T, ID> {
+abstract class AbstractMapService<T extends BaseEntity, ID extends Long> implements CrudService<T, ID> {
 
-    private final Map<ID, T> map = new HashMap<>();
+    private final Map<Long, T> map = new HashMap<>();
 
     @Override
     public Collection<T> findAll() {
@@ -24,6 +21,13 @@ abstract class AbstractMapService<T extends BaseEntity<ID>, ID extends Long> imp
 
     @Override
     public T save(final T object) {
+        if (object != null) {
+            if (object.getId() == null) {
+                object.setId(getNextId());
+            }
+        } else {
+            throw new RuntimeException("Object can not be null!");
+        }
         return map.put(object.getId(), object);
     }
 
@@ -35,6 +39,18 @@ abstract class AbstractMapService<T extends BaseEntity<ID>, ID extends Long> imp
     @Override
     public void deleteById(final ID id) {
         map.remove(id);
+    }
+
+
+    private Long getNextId() {
+        Long nextId;
+        try {
+            nextId = Collections.max(map.keySet()) + 1;
+        } catch (NoSuchElementException e) {
+            nextId = 1L;
+        }
+
+        return nextId;
     }
 
 }

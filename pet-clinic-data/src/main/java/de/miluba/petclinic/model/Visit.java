@@ -2,7 +2,7 @@ package de.miluba.petclinic.model;
 
 import java.time.LocalDate;
 
-public class Visit extends BaseEntity<Long> {
+public class Visit extends BaseEntity {
 
     private LocalDate date;
     private String description;
