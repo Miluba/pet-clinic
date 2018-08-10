@@ -1,7 +1,7 @@
 package de.miluba.petclinic.bootstrap;
 
-import de.miluba.petclinic.Owner;
-import de.miluba.petclinic.Vet;
+import de.miluba.petclinic.model.Owner;
+import de.miluba.petclinic.model.Vet;
 import de.miluba.petclinic.services.OwnerService;
 import de.miluba.petclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
@@ -20,7 +20,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         Owner owner1 = new Owner();
         owner1.setId(1L);
         owner1.setFirstName("Michael");

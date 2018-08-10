@@ -1,6 +1,6 @@
 package de.miluba.petclinic.services;
 
-import de.miluba.petclinic.Owner;
+import de.miluba.petclinic.model.Owner;
 
 import java.util.Optional;
 

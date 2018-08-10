@@ -1,19 +1,28 @@
-package de.miluba.petclinic;
+package de.miluba.petclinic.model;
 
 import java.time.LocalDate;
 
 public class Pet extends BaseEntity<Long> {
 
-    private PetType petType;
+    private String name;
+    private Species species;
     private Owner owner;
     private LocalDate birthDate;
 
-    public PetType getPetType() {
-        return petType;
+    public String getName() {
+        return name;
     }
 
-    public void setPetType(PetType petType) {
-        this.petType = petType;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Species getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(Species species) {
+        this.species = species;
     }
 
     public Owner getOwner() {
