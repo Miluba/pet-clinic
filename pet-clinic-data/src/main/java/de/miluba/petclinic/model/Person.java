@@ -2,22 +2,14 @@ package de.miluba.petclinic.model;
 
 public class Person extends BaseEntity {
 
-    private String firstName;
-    private String lastName;
+    private Name name;
 
-    public String getFirstName() {
-        return firstName;
+    public Name getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(Name name) {
+        this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 }

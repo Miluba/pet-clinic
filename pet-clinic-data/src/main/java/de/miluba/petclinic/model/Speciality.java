@@ -2,11 +2,11 @@ package de.miluba.petclinic.model;
 
 public class Speciality {
 
-    private String name;
+    private String speciality;
     private String description;
 
-    public Speciality(String name,String description) {
-        this.name = name;
+    public Speciality(String speciality, String description) {
+        this.speciality = speciality;
         this.description = description;
     }
 
@@ -14,7 +14,7 @@ public class Speciality {
         return description;
     }
 
-    public String getName() {
-        return name;
+    public String getSpeciality() {
+        return speciality;
     }
 }

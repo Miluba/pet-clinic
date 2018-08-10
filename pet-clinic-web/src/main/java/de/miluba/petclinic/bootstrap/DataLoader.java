@@ -1,5 +1,7 @@
 package de.miluba.petclinic.bootstrap;
 
+import de.miluba.petclinic.model.Address;
+import de.miluba.petclinic.model.Name;
 import de.miluba.petclinic.model.Owner;
 import de.miluba.petclinic.model.Vet;
 import de.miluba.petclinic.services.OwnerService;
@@ -22,20 +24,23 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Owner owner1 = new Owner();
-        owner1.setFirstName("Michael");
-        owner1.setLastName("Bauer");
+        Name michael = new Name("Michael", "Lukas", "Bauer");
+        Address address = new Address("67", "Feldbergstraße", "68163", "Mannheim", "Germany");
+        owner1.setName(michael);
+        owner1.setAddress(address);
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
-        owner2.setFirstName("Christina");
-        owner2.setLastName("Halwax");
+        Name christina = new Name("Christina", "", "Halwax");
+        owner2.setName(christina);
+        owner2.setAddress(address);
         ownerService.save(owner2);
 
         System.out.println("Loaded Owners ...");
 
         Vet vet = new Vet();
-        vet.setFirstName("Peter");
-        vet.setLastName("Butz");
+        Name peter = new Name("Peter", "", "Butz");
+        vet.setName(peter);
         vetService.save(vet);
 
         System.out.println("Loaded Vets ...");

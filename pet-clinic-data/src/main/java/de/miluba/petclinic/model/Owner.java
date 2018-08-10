@@ -4,8 +4,8 @@ import java.util.Set;
 
 public class Owner extends Person {
 
-    private String address;
-    private String city;
+
+    private Address address;
     private String telephone;
     private Set<Pet> pets;
 
@@ -17,20 +17,12 @@ public class Owner extends Person {
         return pets;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     public String getTelephone() {
