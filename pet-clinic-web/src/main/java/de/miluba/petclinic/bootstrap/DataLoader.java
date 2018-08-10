@@ -8,8 +8,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -48,18 +46,15 @@ public class DataLoader implements CommandLineRunner {
         Vet vet = new Vet();
         Name peter = new Name("Peter", "", "Butz");
         vet.setName(peter);
-        Set<Speciality> specialties = new HashSet<>();
-        specialties.addAll(Arrays.asList(
-                new Speciality("cat", "cat master"),
-                new Speciality("dog", "dog bachelor"))
-        );
-        vet.setSpecialities(specialties);
+        vet.addSpeciality(new Speciality("cat", "cat master"));
+        vet.addSpeciality(new Speciality("dog", "dog bachelor"));
         vetService.save(vet);
 
         Pet dog = new Pet();
         dog.setSpecies(Species.DOG);
         dog.setName("Bello");
         dog.setOwner(owner1);
+        owner1.addPet(dog);
         dog.setBirthDate(LocalDate.now());
         petService.save(dog);
 
@@ -67,6 +62,7 @@ public class DataLoader implements CommandLineRunner {
         dog.setSpecies(Species.CAT);
         dog.setName("Mietzi");
         dog.setOwner(owner1);
+        owner1.addPet(cat);
         dog.setBirthDate(LocalDate.now());
         petService.save(cat);
 
@@ -74,6 +70,7 @@ public class DataLoader implements CommandLineRunner {
         dog.setSpecies(Species.FISH);
         dog.setName("Nemo");
         dog.setOwner(owner2);
+        owner2.addPet(fish);
         dog.setBirthDate(LocalDate.now());
         petService.save(fish);
 

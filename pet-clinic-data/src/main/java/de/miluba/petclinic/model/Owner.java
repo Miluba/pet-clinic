@@ -1,5 +1,6 @@
 package de.miluba.petclinic.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Owner extends Person {
@@ -7,10 +8,10 @@ public class Owner extends Person {
 
     private Address address;
     private String telephone;
-    private Set<Pet> pets;
+    private final Set<Pet> pets = new HashSet<>();
 
-    public void setPets(Set<Pet> pets) {
-        this.pets = pets;
+    public boolean addPet(final Pet pet){
+        return pets.add(pet);
     }
 
     public Set<Pet> getPets() {
