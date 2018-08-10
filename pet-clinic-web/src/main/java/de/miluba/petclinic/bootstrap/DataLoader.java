@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 @Component
@@ -47,7 +48,7 @@ public class DataLoader implements CommandLineRunner {
         Vet vet = new Vet();
         Name peter = new Name("Peter", "", "Butz");
         vet.setName(peter);
-        Set specialties = Collections.EMPTY_SET;
+        Set<Speciality> specialties = new HashSet<>();
         specialties.addAll(Arrays.asList(
                 new Speciality("cat", "cat master"),
                 new Speciality("dog", "dog bachelor"))
