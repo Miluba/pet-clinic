@@ -10,8 +10,12 @@ public class Owner extends Person {
     private String telephone;
     private final Set<Pet> pets = new HashSet<>();
 
-    public boolean addPet(final Pet pet){
+    public boolean addPet(final Pet pet) {
         return pets.add(pet);
+    }
+
+    public boolean removePet(final Pet pet) {
+        return pets.remove(pet);
     }
 
     public Set<Pet> getPets() {

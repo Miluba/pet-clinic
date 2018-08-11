@@ -24,19 +24,17 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner save(final Owner owner) {
-        if (owner != null) {
-            if (owner.getId() == null || !findById(owner.getId()).isPresent()) {
-                owner.setId(getNextId());
-                owner.getPets().forEach(pet -> {
-                    if (pet.getId() == null || !petService.findById(pet.getId()).isPresent()) {
-                        Pet save = petService.save(pet);
-                        pet.setId(save.getId());
-                    }
-                });
+        if (owner == null) throw new RuntimeException("Owner can not be null!");
+        if (owner.getId() != null && findById(owner.getId()).isPresent())
+            throw new RuntimeException("Owner already exists!");
+
+        owner.setId(getNextId());
+        owner.getPets().forEach(pet -> {
+            if (pet.getId() == null) {
+                Pet save = petService.save(pet);
+                pet.setId(save.getId());
             }
-        } else {
-            throw new RuntimeException("Owner can not be null!");
-        }
+        });
         return super.save(owner);
     }
 
@@ -50,7 +48,7 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     @Override
     public void deleteById(final Long ownerId) {
         Optional<Owner> optionalOwner = findById(ownerId);
-        if (!optionalOwner.isPresent()) throw new RuntimeException("Owner is not known!");
+        if (!optionalOwner.isPresent()) throw new RuntimeException("Owner id is not known!");
         optionalOwner.get().getPets().forEach(pet -> pet.setOwner(null));
         super.delete(optionalOwner.get());
     }
