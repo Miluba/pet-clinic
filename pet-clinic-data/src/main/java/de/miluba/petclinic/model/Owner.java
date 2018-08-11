@@ -14,7 +14,7 @@ public class Owner extends Person {
     private String telephone;
 
     @OneToMany(
-            mappedBy = "pet",
+            mappedBy = "owner",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )

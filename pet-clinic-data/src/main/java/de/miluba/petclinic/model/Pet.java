@@ -1,7 +1,10 @@
 package de.miluba.petclinic.model;
 
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "pet")
@@ -17,8 +20,16 @@ public class Pet extends BaseEntity {
     @JoinColumn(name = "owner_id")
     private Owner owner;
 
-    @Temporal(TemporalType.DATE)
+    @Column(name = "birth_date")
     private LocalDate birthDate;
+
+    @OneToMany(
+            mappedBy = "pet",
+            orphanRemoval = true,
+            cascade = CascadeType.ALL
+    )
+    private final Set<Visit> visits = new HashSet<>();
+
 
     public String getName() {
         return name;
@@ -50,5 +61,17 @@ public class Pet extends BaseEntity {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public Set<Visit> getVisits() {
+        return visits;
+    }
+
+    public boolean addVisit(final Visit visit){
+        return visits.add(visit);
+    }
+
+    public boolean removeVisit(final Visit visit){
+        return visits.remove(visit);
     }
 }

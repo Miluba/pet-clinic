@@ -6,14 +6,14 @@ import java.time.LocalDate;
 @Entity
 public class Visit extends BaseEntity {
 
-    @Temporal(TemporalType.DATE)
     @Column(name = "date")
     private LocalDate date;
 
     @Column(name = "description")
     private String description;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pet_id")
     private Pet pet;
 
     public LocalDate getDate() {
