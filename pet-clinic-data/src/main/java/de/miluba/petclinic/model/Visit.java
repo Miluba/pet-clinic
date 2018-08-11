@@ -1,11 +1,19 @@
 package de.miluba.petclinic.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
 public class Visit extends BaseEntity {
 
+    @Temporal(TemporalType.DATE)
+    @Column(name = "date")
     private LocalDate date;
+
+    @Column(name = "description")
     private String description;
+
+    @OneToOne
     private Pet pet;
 
     public LocalDate getDate() {

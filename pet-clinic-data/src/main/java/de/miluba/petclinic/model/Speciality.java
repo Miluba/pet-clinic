@@ -1,8 +1,15 @@
 package de.miluba.petclinic.model;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Speciality {
 
+    @Column(name = "speciality")
     private String speciality;
+
+    @Column(name = "description")
     private String description;
 
     public Speciality(String speciality, String description) {

@@ -1,7 +1,7 @@
 package de.miluba.petclinic.model;
 
 public enum Species {
-    CAT("cat"),DOG("dog"),FISH("fish");
+    CAT("cat"), DOG("dog"), FISH("fish");
 
     private final String speciesName;
 

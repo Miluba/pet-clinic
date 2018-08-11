@@ -1,12 +1,23 @@
 package de.miluba.petclinic.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "pet")
 public class Pet extends BaseEntity {
 
+    @Column(name = "name")
     private String name;
+
+    @Enumerated(value = EnumType.STRING)
     private Species species;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id")
     private Owner owner;
+
+    @Temporal(TemporalType.DATE)
     private LocalDate birthDate;
 
     public String getName() {

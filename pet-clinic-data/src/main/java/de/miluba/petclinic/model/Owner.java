@@ -1,13 +1,23 @@
 package de.miluba.petclinic.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name = "owner")
 public class Owner extends Person {
 
-
+    @Embedded
     private Address address;
+    @Column(name = "telephone")
     private String telephone;
+
+    @OneToMany(
+            mappedBy = "pet",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private final Set<Pet> pets = new HashSet<>();
 
     public boolean addPet(final Pet pet) {
