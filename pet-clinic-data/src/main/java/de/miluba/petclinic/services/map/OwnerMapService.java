@@ -1,11 +1,14 @@
 package de.miluba.petclinic.services.map;
 
+import de.miluba.petclinic.model.Name;
 import de.miluba.petclinic.model.Owner;
 import de.miluba.petclinic.model.Pet;
 import de.miluba.petclinic.services.OwnerService;
 import de.miluba.petclinic.services.PetService;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Optional;
 
 @Service
@@ -18,8 +21,8 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     }
 
     @Override
-    public Optional<Owner> findByLastName(String lastName) {
-        return Optional.empty();
+    public Collection<Owner> findByName(final Name lastName) {
+        return Collections.EMPTY_SET;
     }
 
     @Override
