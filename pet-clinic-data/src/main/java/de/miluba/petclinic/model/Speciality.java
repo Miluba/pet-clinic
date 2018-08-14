@@ -12,6 +12,9 @@ public class Speciality {
     @Column(name = "description")
     private String description;
 
+    public Speciality() {
+    }
+
     public Speciality(String speciality, String description) {
         this.speciality = speciality;
         this.description = description;

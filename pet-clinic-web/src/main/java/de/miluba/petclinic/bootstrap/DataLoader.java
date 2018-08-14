@@ -4,6 +4,7 @@ import de.miluba.petclinic.model.*;
 import de.miluba.petclinic.services.OwnerService;
 import de.miluba.petclinic.services.PetService;
 import de.miluba.petclinic.services.VetService;
+import de.miluba.petclinic.services.VisitService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,12 +16,15 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetService petService;
+    private final VisitService visitService;
 
 
-    public DataLoader(final OwnerService ownerService, final VetService vetService, final PetService petService) {
+    public DataLoader(final OwnerService ownerService, final VetService vetService, final PetService petService,
+                      VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petService = petService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -32,7 +36,8 @@ public class DataLoader implements CommandLineRunner {
     private void loadData() {
         Owner owner1 = new Owner();
         Name michael = new Name("Michael", "Lukas", "Bauer");
-        Address address = new Address("67", "Feldbergstraße", "68163", "Mannheim", "Germany");
+        Address address = new Address("67", "Feldbergstraße", "68163", "Mannheim",
+                "Germany");
         owner1.setName(michael);
         owner1.setAddress(address);
         ownerService.save(owner1);
@@ -79,5 +84,26 @@ public class DataLoader implements CommandLineRunner {
         petService.save(fish);
 
         System.out.println("Loaded Pets ...");
+
+        Visit visit1 = new Visit();
+        visit1.setDate(LocalDate.now());
+        visit1.setDescription("Head ake");
+        visit1.setPet(dog);
+        visitService.save(visit1);
+
+        Visit visit2 = new Visit();
+        visit2.setDate(LocalDate.now());
+        visit2.setDescription("Knee pain");
+        visit2.setPet(cat);
+        visitService.save(visit2);
+
+        Visit visit3 = new Visit();
+        visit3.setDate(LocalDate.now());
+        visit3.setDescription("Fin pain");
+        visit3.setPet(fish);
+        visitService.save(visit3);
+
+        System.out.println("Loaded Visits ...");
+
     }
 }
