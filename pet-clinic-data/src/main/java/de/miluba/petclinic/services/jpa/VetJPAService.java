@@ -28,8 +28,8 @@ public class VetJPAService implements VetService {
     }
 
     @Override
-    public Optional<Vet> findById(Long id) {
-        return vetRepository.findById(id);
+    public Vet findById(Long id) {
+        return vetRepository.findById(id).orElse(null);
     }
 
     @Override

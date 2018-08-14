@@ -15,8 +15,8 @@ abstract class AbstractMapService<T extends BaseEntity, ID extends Long> impleme
     }
 
     @Override
-    public Optional<T> findById(final ID id) {
-        return Optional.of(map.get(id));
+    public T findById(final ID id) {
+        return Optional.of(map.get(id)).orElse(null);
     }
 
     @Override

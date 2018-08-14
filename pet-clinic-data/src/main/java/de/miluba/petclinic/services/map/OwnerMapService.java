@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Optional;
 
 @Service
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
@@ -28,7 +27,7 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner save(final Owner owner) {
         if (owner == null) throw new RuntimeException("Owner can not be null!");
-        if (owner.getId() != null && findById(owner.getId()).isPresent())
+        if (owner.getId() != null && findById(owner.getId()) != null)
             throw new RuntimeException("Owner already exists!");
 
         owner.setId(getNextId());
@@ -50,9 +49,9 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public void deleteById(final Long ownerId) {
-        Optional<Owner> optionalOwner = findById(ownerId);
-        if (!optionalOwner.isPresent()) throw new RuntimeException("Owner id is not known!");
-        optionalOwner.get().getPets().forEach(pet -> pet.setOwner(null));
-        super.delete(optionalOwner.get());
+        Owner owner = findById(ownerId);
+        if (owner == null) throw new RuntimeException("Owner id is not known!");
+        owner.getPets().forEach(pet -> pet.setOwner(null));
+        super.delete(owner);
     }
 }

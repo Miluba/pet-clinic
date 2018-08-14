@@ -4,24 +4,20 @@ import de.miluba.petclinic.model.Name;
 import de.miluba.petclinic.model.Owner;
 import de.miluba.petclinic.repositories.OwnerRepository;
 import de.miluba.petclinic.services.OwnerService;
-import de.miluba.petclinic.services.PetService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Optional;
 
 @Service
 @Profile("jpa")
 public class OwnerJPAService implements OwnerService {
 
     private final OwnerRepository ownerRepository;
-    private final PetService petService;
 
-    public OwnerJPAService(OwnerRepository ownerRepository, PetService petService) {
+    public OwnerJPAService(final OwnerRepository ownerRepository) {
         this.ownerRepository = ownerRepository;
-        this.petService = petService;
     }
 
     @Override
@@ -37,8 +33,8 @@ public class OwnerJPAService implements OwnerService {
     }
 
     @Override
-    public Optional<Owner> findById(Long id) {
-        return ownerRepository.findById(id);
+    public Owner findById(Long id) {
+        return ownerRepository.findById(id).orElse(null);
     }
 
     @Override

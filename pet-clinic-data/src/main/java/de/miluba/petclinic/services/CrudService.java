@@ -6,7 +6,7 @@ import java.util.Optional;
 public interface CrudService<T, ID> {
     Collection<T> findAll();
 
-    Optional<T> findById(final ID id);
+    T findById(final ID id);
 
     T save(final T object);
 

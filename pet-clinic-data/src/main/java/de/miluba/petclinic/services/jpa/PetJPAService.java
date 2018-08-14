@@ -28,8 +28,8 @@ public class PetJPAService implements PetService {
     }
 
     @Override
-    public Optional<Pet> findById(Long id) {
-        return petRepository.findById(id);
+    public Pet findById(Long id) {
+        return petRepository.findById(id).orElse(null);
     }
 
     @Override
