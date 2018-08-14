@@ -1,9 +1,16 @@
 package de.miluba.petclinic.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity(name = "Owner")
 @Table(name = "owner")
 public class Owner extends Person {
@@ -14,8 +21,10 @@ public class Owner extends Person {
             orphanRemoval = true
     )
     private final Set<Pet> pets = new HashSet<>();
+
     @Embedded
     private Address address;
+
     @Column(name = "telephone")
     private String telephone;
 
@@ -25,25 +34,5 @@ public class Owner extends Person {
 
     public void removePet(final Pet pet) {
         pets.remove(pet);
-    }
-
-    public Set<Pet> getPets() {
-        return pets;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
     }
 }

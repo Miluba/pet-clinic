@@ -44,7 +44,7 @@ public class DataLoader implements CommandLineRunner {
 
         Owner owner2 = new Owner();
         Name christina = new Name("Christina", "", "Halwax");
-        owner1.setTelephone("87654321");
+        owner2.setTelephone("87654321");
         owner2.setName(christina);
         owner2.setAddress(address);
         ownerService.save(owner2);
@@ -58,15 +58,17 @@ public class DataLoader implements CommandLineRunner {
 
         System.out.println("Loaded Specialities ...");
 
-        Vet vet = new Vet();
+        Vet vet1 = new Vet();
         Name peter = new Name("Peter", "", "Butz");
-        vet.setName(peter);
-        vet.addSpeciality(radiology);
-        vet.addSpeciality(surgery);
-        surgery.addVet(vet);
-        radiology.addVet(vet);
-        vetService.save(vet);
+        vet1.setName(peter);
+        vet1.addSpeciality(radiology);
+        vetService.save(vet1);
 
+        Vet vet2 = new Vet();
+        Name hans = new Name("Hans", "", "Wutz");
+        vet2.setName(hans);
+        vet2.addSpeciality(surgery);
+        vetService.save(vet2);
 
         System.out.println("Loaded Vets ...");
 

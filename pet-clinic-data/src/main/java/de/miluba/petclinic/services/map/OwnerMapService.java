@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.Collections;
+import java.util.HashSet;
 
 @Service
 @Profile({"default", "map"})
@@ -23,7 +23,7 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Collection<Owner> findByName(final Name lastName) {
-        return Collections.EMPTY_SET;
+        return new HashSet<>();
     }
 
     @Override
