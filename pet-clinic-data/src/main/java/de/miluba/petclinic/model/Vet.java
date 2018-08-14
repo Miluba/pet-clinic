@@ -22,7 +22,7 @@ public class Vet extends Person {
         return specialities.add(speciality);
     }
 
-    public boolean removeSpeciality(final Speciality speciality){
+    public boolean removeSpeciality(final Speciality speciality) {
         return specialities.remove(speciality);
     }
 }

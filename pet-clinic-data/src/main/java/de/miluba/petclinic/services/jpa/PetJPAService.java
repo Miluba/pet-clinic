@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Optional;
 
 @Service
 @Profile("jpa")

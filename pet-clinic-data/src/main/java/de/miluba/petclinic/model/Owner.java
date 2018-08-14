@@ -8,17 +8,16 @@ import java.util.Set;
 @Table(name = "owner")
 public class Owner extends Person {
 
-    @Embedded
-    private Address address;
-    @Column(name = "telephone")
-    private String telephone;
-
     @OneToMany(
             mappedBy = "owner",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
     private final Set<Pet> pets = new HashSet<>();
+    @Embedded
+    private Address address;
+    @Column(name = "telephone")
+    private String telephone;
 
     public boolean addPet(final Pet pet) {
         return pets.add(pet);

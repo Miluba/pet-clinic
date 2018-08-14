@@ -1,7 +1,6 @@
 package de.miluba.petclinic.services;
 
 import java.util.Collection;
-import java.util.Optional;
 
 public interface CrudService<T, ID> {
     Collection<T> findAll();

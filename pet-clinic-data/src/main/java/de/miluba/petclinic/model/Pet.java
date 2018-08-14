@@ -10,26 +10,21 @@ import java.util.Set;
 @Table(name = "pet")
 public class Pet extends BaseEntity {
 
-    @Column(name = "name")
-    private String name;
-
-    @Enumerated(value = EnumType.STRING)
-    private Species species;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "owner_id")
-    private Owner owner;
-
-    @Column(name = "birth_date")
-    private LocalDate birthDate;
-
     @OneToMany(
             mappedBy = "pet",
             orphanRemoval = true,
             cascade = CascadeType.ALL
     )
     private final Set<Visit> visits = new HashSet<>();
-
+    @Column(name = "name")
+    private String name;
+    @Enumerated(value = EnumType.STRING)
+    private Species species;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id")
+    private Owner owner;
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
 
     public String getName() {
         return name;
@@ -67,11 +62,11 @@ public class Pet extends BaseEntity {
         return visits;
     }
 
-    public boolean addVisit(final Visit visit){
+    public boolean addVisit(final Visit visit) {
         return visits.add(visit);
     }
 
-    public boolean removeVisit(final Visit visit){
+    public boolean removeVisit(final Visit visit) {
         return visits.remove(visit);
     }
 }
