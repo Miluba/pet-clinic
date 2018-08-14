@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+@Entity(name = "Owner")
 @Table(name = "owner")
 public class Owner extends Person {
 
@@ -19,12 +19,12 @@ public class Owner extends Person {
     @Column(name = "telephone")
     private String telephone;
 
-    public boolean addPet(final Pet pet) {
-        return pets.add(pet);
+    public void addPet(final Pet pet) {
+        pets.add(pet);
     }
 
-    public boolean removePet(final Pet pet) {
-        return pets.remove(pet);
+    public void removePet(final Pet pet) {
+        pets.remove(pet);
     }
 
     public Set<Pet> getPets() {

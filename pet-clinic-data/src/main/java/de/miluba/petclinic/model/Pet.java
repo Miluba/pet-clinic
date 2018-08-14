@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+@Entity(name = "Pet")
 @Table(name = "pet")
 public class Pet extends BaseEntity {
 

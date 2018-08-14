@@ -3,7 +3,8 @@ package de.miluba.petclinic.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "Visit")
+@Table(name = "visit")
 public class Visit extends BaseEntity {
 
     @Column(name = "date")
